@@ -1,5 +1,5 @@
 # fuji
-Read Fujifilm Recipe Settings from EXIF using exiftool
+Read Fujifilm Recipe Settings from EXIF using exiftool.
 
 ## Requirements
 
@@ -19,3 +19,7 @@ Exiftool executable for Windows.
 ```bat
 .\scripts\windows\exiftool.bat
 ```
+
+## Usage
+
+Check the `tests` directory for examples of usage.
