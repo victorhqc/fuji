@@ -12,13 +12,31 @@ use std::process::Command;
 #[cfg(target_os = "windows")]
 use winapi::um::winbase::CREATE_NO_WINDOW;
 
-pub fn read_metadata(
-    img_path: &Path,
-    exiftool_path: Option<&Path>,
-) -> Result<Vec<ExifData>, Error> {
-    if !is_valid_extension(img_path) {
+/// Reads Metadata from a JPEG or RAF File. This spawns a new process that runs
+/// exiftool.
+///
+/// # Example
+///
+/// ```
+/// use fuji::exiftool::spawn;
+///
+/// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+/// // Read metadata from a Fujifilm image
+/// let path = std::path::Path::new("tests/img/DSCF5230.JPG");
+/// let metadata = spawn::read_metadata(&path, None)?;
+///
+/// println!("Metadata: {:?}", metadata);
+///
+/// # Ok(())
+/// # }
+/// ```
+pub fn read_metadata<P>(img_path: &P, exiftool_path: Option<&Path>) -> Result<Vec<ExifData>, Error>
+where
+    P: AsRef<Path>,
+{
+    if !is_valid_extension(img_path.as_ref()) {
         return Err(Error::Path {
-            path: img_path.to_str().unwrap_or("NONE").to_string(),
+            path: img_path.as_ref().to_string_lossy().to_string(),
         });
     }
 
@@ -33,7 +51,7 @@ pub fn read_metadata(
         .arg("-a")
         .arg("-m")
         .arg("-j")
-        .arg(img_path)
+        .arg(img_path.as_ref())
         .output()
         .context(ExiftoolSnafu)?;
 

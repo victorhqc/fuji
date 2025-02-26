@@ -16,7 +16,7 @@ use test_utilities::get_manifest_dir;
 fn test_classic_neg() {
     let img_path = get_manifest_dir().join("tests/img/DSCF5230.RAF");
 
-    let result = spawn::read_metadata(img_path.as_path(), None).unwrap();
+    let result = spawn::read_metadata(&img_path, None).unwrap();
     let recipe = read::from_exif(result.as_slice()).unwrap();
 
     let expected = Some(FujifilmRecipeDetails {
