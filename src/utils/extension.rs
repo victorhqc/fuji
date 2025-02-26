@@ -1,6 +1,6 @@
 use std::path::Path;
 
-const EXTENSIONS: [&str; 2] = ["jpg", "jpeg"];
+const EXTENSIONS: [&str; 3] = ["jpg", "jpeg", "raf"];
 pub fn is_valid_extension(path: &Path) -> bool {
     let extension = path.extension().unwrap_or("none".as_ref());
     let extension = extension.to_str().unwrap_or("none").to_lowercase();

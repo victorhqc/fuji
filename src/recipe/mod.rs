@@ -17,14 +17,14 @@ impl FujifilmRecipe {
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct FujifilmRecipeDetails {
     pub film_simulation: FilmSimulation,
     pub sensor: TransSensor,
     pub settings: Settings,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Display)]
+#[derive(Debug, Clone, Serialize, Deserialize, Display, PartialEq)]
 #[serde(untagged)]
 pub enum Settings {
     TransI(TransISettings),
@@ -324,7 +324,7 @@ pub struct Clarity {
     pub value: i64,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct TransVSettings {
     pub white_balance: WhiteBalance,
     pub dynamic_range: DynamicRange,
@@ -340,7 +340,7 @@ pub struct TransVSettings {
     pub clarity: Clarity,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct TransIVSettings {
     pub white_balance: WhiteBalance,
     pub dynamic_range: DynamicRange,
@@ -356,7 +356,7 @@ pub struct TransIVSettings {
     pub clarity: Clarity,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct TransIIISettings {
     pub white_balance: WhiteBalance,
     pub dynamic_range: DynamicRange,
@@ -368,7 +368,7 @@ pub struct TransIIISettings {
     pub high_iso_noise_reduction: HighISONoiseReduction,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct TransIISettings {
     pub white_balance: WhiteBalance,
     pub dynamic_range: DynamicRange,
@@ -378,7 +378,7 @@ pub struct TransIISettings {
     pub high_iso_noise_reduction: HighISONoiseReduction,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct TransISettings {
     pub white_balance: WhiteBalance,
     pub dynamic_range: DynamicRange,

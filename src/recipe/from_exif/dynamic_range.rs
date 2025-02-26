@@ -5,9 +5,11 @@ use log::trace;
 impl FromExifData for DynamicRange {
     fn from_exif(data: &[ExifData]) -> Option<Self> {
         if let Some(exif) = data.find("DynamicRangeSetting") {
-            trace!("DynamicRange::from_exif: {:?}", exif);
+            if exif.value().to_lowercase() != "manual" {
+                trace!("DynamicRange::from_exif: {:?}", exif);
 
-            return Some(DynamicRange::Auto);
+                return Some(DynamicRange::Auto);
+            }
         };
 
         let exif = data.find("DevelopmentDynamicRange")?;
