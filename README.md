@@ -1,5 +1,5 @@
 # fuji
-Read Fujifilm Recipe Settings from EXIF using exiftool.
+Read Fujifilm Recipe Settings from EXIF using [exiftool](https://exiftool.org/).
 
 ## Requirements
 
