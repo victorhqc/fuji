@@ -1,5 +1,26 @@
 # Fuji
+
 Read Fujifilm Recipe Settings from EXIF using [exiftool](https://exiftool.org/).
+
+_Note: This is not production ready and not recommended for everyday use until
+it can be shipped without the need for exiftool. However it works quite well
+with its limitations._
+
+### Why Exiftool?
+
+I tried using [kamadak-exif](https://crates.io/crates/kamadak-exif) but it does
+not read the EXIF data that I was interested in. There's also
+[rexiv2](https://crates.io/crates/rexiv2) that seems to read the values needed
+for Fujifilm recipes, a later revision of this library will probably use this
+instead or as a different feature branch.
+
+[Exiftool](https://exiftool.org/) on the other hand is quite powerful, it has a
+lot of support for and it works wonderfully. The only downside is the need of
+spawning a separate process to invoke it with Perl or run the executable in
+Windows.
+
+This makes it awkward to ship, as it requires Perl to be installed on the
+system. As well as shipping the exiftool executable.
 
 ```rust
 use fuji::exiftool::spawn;
