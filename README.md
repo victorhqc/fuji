@@ -22,6 +22,8 @@ Windows.
 This makes it awkward to ship, as it requires Perl to be installed on the
 system. As well as shipping the exiftool executable.
 
+## Example
+
 ```rust
 use fuji::exiftool::spawn;
 use fuji::recipe::read;
