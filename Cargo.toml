@@ -5,7 +5,7 @@ edition = "2021"
 description = "A library to read Fujifilm Recipes & Exif Metadata from a JPEG or RAF file using exiftool."
 license = "Apache-2.0"
 keywords = ["fujifilm", "recipe", "exif", "metadata"]
-exclude = [".github", "tests", "test-utilities", "scripts", "deps"]
+exclude = [".github", "tests/*.RAF", "scripts", "deps"]
 
 [dependencies]
 log = "~0.4.26"
