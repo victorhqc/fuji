@@ -1,6 +1,6 @@
 [package]
 name = "fuji"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "A library to read Fujifilm Recipes & Exif Metadata from a JPEG or RAF file using exiftool."
 license = "Apache-2.0"
