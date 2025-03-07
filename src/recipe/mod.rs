@@ -1,10 +1,10 @@
 use serde::{Deserialize, Serialize, Serializer};
 use strum_macros::{Display, EnumString};
 
-mod builder;
-mod from_exif;
+pub mod builder;
+pub mod from_exif;
 pub mod read;
-mod str;
+pub mod str;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct FujifilmRecipe {
